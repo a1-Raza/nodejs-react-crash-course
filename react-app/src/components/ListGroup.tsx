@@ -1,24 +1,18 @@
-import { Fragment } from "react";
+import { Fragment, useState, MouseEvent } from "react";
 
-function ListGroup() {
-  let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
-  //items = [];
+interface Props {
+  items: string[];
+  heading: string;
+  onSelectItem: (item: string) => void; // void function, doesn't return anything, just does stuff; now to updaye App.tsx
+}
 
-  // no for loops in JSX, so you can use array mapping from JavaScript;
-  // and so the items.map line turns each item in items into an li element
-
-  // using variables to print messages
-  //const message = items.length === 0 ? <p>No item found</p> : null;
-
-  // can also do the above like this
-  /*const getMessage = (message: string) => {
-    return items.length === 0 ? <p>{message}</p> : null;
-  };*/
+function ListGroup({ items, heading, onSelectItem }: Props) {
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
   // rather than using <div>, using <Fragment> (or <>, which is shorthand for <Fragment>)
   return (
     <>
-      <h1>List</h1>
+      <h1>{heading}</h1>
       {/*getMessage("No items found")*/}
       {
         items.length === 0 && (
@@ -28,9 +22,16 @@ function ListGroup() {
       <ul className="list-group">
         {items.map((item, index) => (
           <li
-            className="list-group-item"
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
             key={item}
-            onClick={(event) => console.log(event)}
+            onClick={() => {
+              setSelectedIndex(index);
+              onSelectItem(item);
+            }}
           >
             {item}
           </li>

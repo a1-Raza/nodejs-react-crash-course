@@ -1,11 +1,11 @@
-import ListGroup from "./components/ListGroup";
+import Alert from "./components/Alert";
 
 function App() {
-  //return <div><Message></Message></div>;
-  // below is same as above, called self-closing syntax
   return (
     <div>
-      <ListGroup />
+      <Alert>
+        Hello <b>World</b>
+      </Alert>
     </div>
   );
 }
