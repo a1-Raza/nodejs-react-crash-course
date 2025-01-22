@@ -13,7 +13,6 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
   return (
     <>
       <h1>{heading}</h1>
-      {/*getMessage("No items found")*/}
       {
         items.length === 0 && (
           <p>No items found</p>

@@ -1,6 +1,6 @@
 import ListGroup from "./components/ListGroup";
 
-function App() {
+function AppListGroup() {
   //return <div><Message></Message></div>;
   // below is same as above, called self-closing syntax
 
@@ -23,4 +23,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppListGroup;
