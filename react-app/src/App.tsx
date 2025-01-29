@@ -1,29 +1,12 @@
-import { useState } from "react";
-import AlertDismissable from "./components/AlertDismissable";
-import Button from "./components/Button"
+import { Fragment, ReactNode } from "react";
+import Navbar from "./components/Navbar";
 
-function App() {
-
-  let alertButtonClicked = useState(false);
-
-  const CreateAlert = ( showAlert: boolean ) => {
-    return (
-      <>
-        { showAlert &&
-          <AlertDismissable>
-            Hello World
-          </AlertDismissable>
-        }
-      </>
-    )
-  };
-
+const App = () => {
   return (
-    <div>
-      {CreateAlert(false)}
-      <Button color="secondary" onClick={() => {alertButtonClicked = true}}><i>Button</i></Button>
-    </div>
+    <>
+      <Navbar darkmode={true} />
+    </>
   );
-}
+};
 
 export default App;

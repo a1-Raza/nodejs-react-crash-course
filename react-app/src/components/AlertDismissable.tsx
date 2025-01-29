@@ -1,16 +1,26 @@
-import { Fragment, ReactNode } from "react"
+import { Fragment, ReactNode } from "react";
 
-interface Props{
-    children: ReactNode;
+interface Props {
+  children: ReactNode;
+  onClose: () => void;
 }
 
-const AlertDismissable = ( {children} : Props ) => {
+const AlertDismissable = ({ children, onClose }: Props) => {
   return (
-    <div className="alert alert-warning alert-dismissible fade show" role="alert">
-    {children}
-    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <div
+      className="alert alert-warning alert-dismissible fade show"
+      role="alert"
+    >
+      {children}
+      <button
+        type="button"
+        className="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+        onClick={onClose}
+      ></button>
     </div>
-  )
-}
+  );
+};
 
-export default AlertDismissable
+export default AlertDismissable;
